@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Guion Juan Luis - Version 3 minutos y medio</title>
+  <style>
+    body { font-family: Arial, sans-serif; color: #1f2933; line-height: 1.42; margin: 36px; }
+    h1 { color: #0f4c81; font-size: 25px; margin-bottom: 4px; }
+    h2 { color: #16324f; font-size: 17px; margin-top: 22px; border-bottom: 1px solid #d9e2ec; padding-bottom: 4px; }
+    h3 { color: #243b53; font-size: 14px; margin-top: 14px; }
+    p, li { font-size: 12.5px; }
+    .meta { color: #52606d; margin-bottom: 20px; }
+    .box { background: #f5f7fa; border-left: 4px solid #0f4c81; padding: 10px 14px; margin: 12px 0; }
+    .time { color: #7b341e; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Guion Juan Luis - Video de 3 minutos y medio</h1>
+  <p class="meta">Tema: administracion de viajes, reservas y resenas. Duracion objetivo: 3:10 - 3:30.</p>
+
+  <h2>Orden recomendado de pantalla</h2>
+  <ol>
+    <li><strong>frontend/pages/admin/admin.html</strong>: mostrar el panel de administracion.</li>
+    <li><strong>frontend/js/admin/viajes/crearPaquete.js</strong>: explicar alta de paquetes y envio de datos.</li>
+    <li><strong>api/paquetes/create.php</strong> y <strong>api/paquetes/update.php</strong>: explicar guardado en backend y subida de imagenes.</li>
+    <li><strong>frontend/js/admin/reservas/reservas.js</strong> y <strong>reservasRender.js</strong>: explicar listado y visualizacion de reservas.</li>
+    <li><strong>frontend/js/admin/comentarios/resenas.js</strong>: explicar gestion de resenas desde admin.</li>
+    <li><strong>api/comentarios/admin_listar.php</strong>, <strong>update.php</strong> y <strong>delete.php</strong>: explicar listar, publicar/editar y borrar resenas.</li>
+  </ol>
+
+  <h2>Guion hablado con tiempos</h2>
+
+  <h3><span class="time">0:00 - 0:25</span> Presentacion</h3>
+  <div class="box">
+    <p>
+      "En mi parte voy a explicar principalmente el panel de administracion de Turistea. Esta zona esta pensada
+      para que la agencia pueda gestionar viajes, reservas y resenas sin tocar directamente la base de datos."
+    </p>
+  </div>
+
+  <h3><span class="time">0:25 - 1:20</span> Gestion de paquetes</h3>
+  <p>
+    "El primer archivo importante es <strong>admin.html</strong>, que funciona como entrada al panel. Desde aqui
+    se accede a las secciones de gestion."
+  </p>
+  <p>
+    "Despues, en <strong>crearPaquete.js</strong>, esta la logica del formulario para crear paquetes. Aqui se
+    recogen los datos del viaje, como destino, fechas, precio, plazas, descripcion e imagenes, y se preparan
+    para enviarlos al backend."
+  </p>
+  <p>
+    "La parte del servidor esta en <strong>api/paquetes/create.php</strong> y <strong>api/paquetes/update.php</strong>.
+    Estos archivos reciben la informacion, validan lo necesario, guardan el paquete en la base de datos y gestionan
+    la subida de imagenes. Esto permite que el administrador cree o edite viajes desde la interfaz."
+  </p>
+
+  <h3><span class="time">1:20 - 2:00</span> Reservas de administracion</h3>
+  <p>
+    "Otra parte importante esta en <strong>reservas.js</strong> y <strong>reservasRender.js</strong>. Aqui se gestiona
+    la vista de reservas dentro del panel admin."
+  </p>
+  <p>
+    "La idea es separar responsabilidades: <strong>reservas.js</strong> controla la carga de datos y los eventos,
+    mientras que <strong>reservasRender.js</strong> se encarga de pintar la informacion en pantalla. Asi el codigo
+    queda mas ordenado y es mas facil modificar la vista sin romper la logica."
+  </p>
+
+  <h3><span class="time">2:00 - 3:05</span> Administracion de resenas</h3>
+  <p>
+    "La ultima parte clave es la moderacion de resenas. En <strong>resenas.js</strong> se controla la tabla de
+    comentarios del administrador: cargar resenas, mostrarlas, editar su contenido, cambiar su estado y eliminarlas."
+  </p>
+  <p>
+    "En backend intervienen tres archivos principales. <strong>admin_listar.php</strong> devuelve las resenas para
+    el panel, <strong>update.php</strong> permite editar o cambiar el estado de publicacion, y <strong>delete.php</strong>
+    permite eliminar una resena."
+  </p>
+  <p>
+    "Esto es importante porque las resenas las crean usuarios, pero la empresa necesita poder moderar lo que se
+    muestra publicamente. Asi evitamos publicar contenido incorrecto y damos control al administrador."
+  </p>
+
+  <h3><span class="time">3:05 - 3:25</span> Cierre</h3>
+  <div class="box">
+    <p>
+      "En resumen, mi parte aporta la gestion interna del proyecto: crear y actualizar viajes, revisar reservas
+      y moderar resenas. Con esto Turistea no es solo una web para ver viajes, sino una aplicacion administrable."
+    </p>
+  </div>
+
+  <h2>Consejo para grabar</h2>
+  <ul>
+    <li>No abras mas de 6 o 7 archivos en el video. Es mejor explicar pocos bien que muchos rapido.</li>
+    <li>Cuando muestres codigo, no leas linea por linea: explica que responsabilidad tiene cada archivo.</li>
+    <li>Si falta tiempo, salta <strong>admin.html</strong> y empieza directamente en <strong>crearPaquete.js</strong>.</li>
+  </ul>
+</body>
+</html>

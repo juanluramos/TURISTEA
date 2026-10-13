@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Guion Jorge - Version 3 minutos y medio</title>
+  <style>
+    body { font-family: Arial, sans-serif; color: #1f2933; line-height: 1.42; margin: 36px; }
+    h1 { color: #0f4c81; font-size: 25px; margin-bottom: 4px; }
+    h2 { color: #16324f; font-size: 17px; margin-top: 22px; border-bottom: 1px solid #d9e2ec; padding-bottom: 4px; }
+    h3 { color: #243b53; font-size: 14px; margin-top: 14px; }
+    p, li { font-size: 12.5px; }
+    .meta { color: #52606d; margin-bottom: 20px; }
+    .box { background: #f5f7fa; border-left: 4px solid #0f4c81; padding: 10px 14px; margin: 12px 0; }
+    .time { color: #7b341e; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Guion Jorge - Video de 3 minutos y medio</h1>
+  <p class="meta">Tema: backend transversal, autenticacion, rutas, emails, PDFs y pagos. Duracion objetivo: 3:10 - 3:30.</p>
+
+  <h2>Orden recomendado de pantalla</h2>
+  <ol>
+    <li><strong>.env.example</strong> y <strong>api/config/bd.php</strong>: configuracion y conexion.</li>
+    <li><strong>api/config/auth.php</strong> y <strong>api/auth/session.php</strong>: sesion y rol.</li>
+    <li><strong>frontend/js/config.js</strong> y <strong>frontend/js/utils/fetch.js</strong>: rutas dinamicas y fetch comun.</li>
+    <li><strong>api/contacto/enviar.php</strong> y <strong>api/contacto/generar_pdf_confirmacion.php</strong>: email y PDF de contacto.</li>
+    <li><strong>api/reservas/factura_pdf.php</strong>: factura PDF.</li>
+    <li><strong>frontend/js/pasarela-pago.js</strong>, <strong>api/reservas/crear.php</strong> y <strong>api/tarjetas/guardar.php</strong>: pago y reserva.</li>
+  </ol>
+
+  <h2>Guion hablado con tiempos</h2>
+
+  <h3><span class="time">0:00 - 0:25</span> Presentacion</h3>
+  <div class="box">
+    <p>
+      "En mi parte voy a explicar la base tecnica del proyecto: configuracion, autenticacion, llamadas al backend,
+      envio de emails, generacion de PDFs y flujo de pago."
+    </p>
+  </div>
+
+  <h3><span class="time">0:25 - 1:10</span> Configuracion y sesiones</h3>
+  <p>
+    "Primero, <strong>.env.example</strong> sirve como guia para configurar el proyecto en local. Despues,
+    <strong>api/config/bd.php</strong> centraliza la conexion con la base de datos."
+  </p>
+  <p>
+    "Para la autenticacion, los archivos clave son <strong>auth.php</strong> y <strong>session.php</strong>. Con ellos
+    se comprueba si hay un usuario conectado y que rol tiene, por ejemplo usuario normal o administrador."
+  </p>
+
+  <h3><span class="time">1:10 - 1:55</span> Rutas y llamadas reutilizables</h3>
+  <p>
+    "Otro punto importante esta en <strong>frontend/js/config.js</strong> y <strong>frontend/js/utils/fetch.js</strong>.
+    Estos archivos evitan repetir rutas fijas por todo el proyecto."
+  </p>
+  <p>
+    "La ventaja es que si cambia la carpeta o el entorno, no hay que ir archivo por archivo corrigiendo URLs.
+    Tambien hace que las llamadas al backend sean mas ordenadas y faciles de mantener."
+  </p>
+
+  <h3><span class="time">1:55 - 2:45</span> Emails y PDFs</h3>
+  <p>
+    "Para el formulario de contacto, <strong>api/contacto/enviar.php</strong> gestiona el envio del email y
+    <strong>generar_pdf_confirmacion.php</strong> crea un documento de confirmacion."
+  </p>
+  <p>
+    "Ademas, <strong>api/reservas/factura_pdf.php</strong> permite generar facturas en PDF. Esto es importante
+    porque una agencia de viajes necesita documentos descargables o enviables al cliente."
+  </p>
+
+  <h3><span class="time">2:45 - 3:20</span> Pago y reserva</h3>
+  <p>
+    "Por ultimo, en <strong>pasarela-pago.js</strong> esta la logica del flujo de pago en frontend. En backend,
+    <strong>api/reservas/crear.php</strong> crea la reserva y <strong>api/tarjetas/guardar.php</strong> gestiona el
+    guardado de tarjeta cuando el usuario lo decide."
+  </p>
+
+  <h3><span class="time">3:20 - 3:30</span> Cierre</h3>
+  <div class="box">
+    <p>
+      "En resumen, mi parte conecta la aplicacion con servicios reales: sesiones, base de datos, documentos,
+      correos y pagos."
+    </p>
+  </div>
+
+  <h2>Consejo para grabar</h2>
+  <ul>
+    <li>No entres en detalles de credenciales; explica la funcion de configuracion.</li>
+    <li>Abre solo los bloques principales para no perder tiempo cambiando de archivo.</li>
+    <li>Si falta tiempo, resume emails y PDFs juntos como servicios documentales.</li>
+  </ul>
+</body>
+</html>

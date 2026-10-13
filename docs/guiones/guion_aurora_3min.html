@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Guion Aurora - Version 3 minutos y medio</title>
+  <style>
+    body { font-family: Arial, sans-serif; color: #1f2933; line-height: 1.42; margin: 36px; }
+    h1 { color: #0f4c81; font-size: 25px; margin-bottom: 4px; }
+    h2 { color: #16324f; font-size: 17px; margin-top: 22px; border-bottom: 1px solid #d9e2ec; padding-bottom: 4px; }
+    h3 { color: #243b53; font-size: 14px; margin-top: 14px; }
+    p, li { font-size: 12.5px; }
+    .meta { color: #52606d; margin-bottom: 20px; }
+    .box { background: #f5f7fa; border-left: 4px solid #0f4c81; padding: 10px 14px; margin: 12px 0; }
+    .time { color: #7b341e; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Guion Aurora - Video de 3 minutos y medio</h1>
+  <p class="meta">Tema: parte publica, filtros, detalle del paquete y experiencias. Duracion objetivo: 3:10 - 3:30.</p>
+
+  <h2>Orden recomendado de pantalla</h2>
+  <ol>
+    <li><strong>index.html</strong>: portada, slider y acceso a paquetes.</li>
+    <li><strong>frontend/js/filtros/filtros.js</strong>: filtros de busqueda.</li>
+    <li><strong>frontend/js/paquetes/detalle.js</strong>: carga del detalle del paquete.</li>
+    <li><strong>frontend/pages/detalle.html</strong>: estructura de la pantalla de detalle.</li>
+    <li><strong>frontend/pages/experiencias.html</strong>: pagina publica de experiencias.</li>
+    <li><strong>frontend/js/experiencias.js</strong> y <strong>frontend/css/experiencias.css</strong>: datos, tarjetas y estilo responsive.</li>
+  </ol>
+
+  <h2>Guion hablado con tiempos</h2>
+
+  <h3><span class="time">0:00 - 0:25</span> Presentacion</h3>
+  <div class="box">
+    <p>
+      "En mi parte voy a explicar la zona publica de Turistea, que es lo primero que ve el usuario:
+      la portada, los filtros, el detalle de los viajes y la pagina de experiencias."
+    </p>
+  </div>
+
+  <h3><span class="time">0:25 - 1:10</span> Portada y filtros</h3>
+  <p>
+    "El primer archivo importante es <strong>index.html</strong>, donde esta la estructura principal de la pagina
+    de inicio. Aqui el usuario encuentra el slider, los bloques destacados y la entrada al listado de paquetes."
+  </p>
+  <p>
+    "La logica de busqueda esta en <strong>filtros.js</strong>. Este archivo permite filtrar los viajes por criterios
+    como destino, fechas o categorias. Con esto la portada no es solo visual, tambien sirve para buscar paquetes
+    de forma rapida."
+  </p>
+
+  <h3><span class="time">1:10 - 2:00</span> Detalle del paquete</h3>
+  <p>
+    "Cuando el usuario selecciona un viaje, entra en la pagina de detalle. La estructura esta en
+    <strong>detalle.html</strong> y la logica principal en <strong>detalle.js</strong>."
+  </p>
+  <p>
+    "En <strong>detalle.js</strong> se carga la informacion del paquete, se muestran datos como descripcion,
+    precio, descuento, plazas e imagenes, y se prepara el flujo para que el usuario pueda continuar hacia la
+    reserva."
+  </p>
+
+  <h3><span class="time">2:00 - 3:05</span> Experiencias y diseno</h3>
+  <p>
+    "Otra parte importante es la pagina de experiencias. En <strong>experiencias.html</strong> esta la estructura,
+    mientras que <strong>experiencias.js</strong> carga y organiza el contenido dinamico, como comentarios o imagenes
+    de usuarios."
+  </p>
+  <p>
+    "El aspecto visual se trabaja en <strong>experiencias.css</strong>. Aqui se definen las tarjetas, la distribucion,
+    el responsive y la apariencia general para que la pagina se vea bien en ordenador y movil."
+  </p>
+  <p>
+    "Tambien se hicieron ajustes visuales en paginas como detalle, footer y navbar para mantener una imagen
+    coherente en toda la aplicacion."
+  </p>
+
+  <h3><span class="time">3:05 - 3:25</span> Cierre</h3>
+  <div class="box">
+    <p>
+      "En resumen, mi parte aporta la experiencia publica del usuario: encontrar viajes, ver la informacion
+      importante y navegar por una interfaz clara antes de reservar."
+    </p>
+  </div>
+
+  <h2>Consejo para grabar</h2>
+  <ul>
+    <li>Ensena primero la web funcionando y luego salta al codigo.</li>
+    <li>No leas todo el codigo: explica la responsabilidad de cada archivo.</li>
+    <li>Si falta tiempo, une detalle y experiencias en un solo bloque final.</li>
+  </ul>
+</body>
+</html>

@@ -1,0 +1,17 @@
+node_modules/
+
+# Configuración local de rutas (cada dev tiene la suya)
+frontend/js/config.local.js
+
+# Variables de entorno (no subir a producción)
+.env
+
+# Credenciales y copias privadas locales
+.env.*
+!.env.example
+api/config/*.local.php
+BD/acceso.txt
+BD/*.local.sql
+setup.local.sh
+output/
+frontend/assets/Confirmacion_Turistea.pdf

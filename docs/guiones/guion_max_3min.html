@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Guion Max - Version 3 minutos y medio</title>
+  <style>
+    body { font-family: Arial, sans-serif; color: #1f2933; line-height: 1.42; margin: 36px; }
+    h1 { color: #0f4c81; font-size: 25px; margin-bottom: 4px; }
+    h2 { color: #16324f; font-size: 17px; margin-top: 22px; border-bottom: 1px solid #d9e2ec; padding-bottom: 4px; }
+    h3 { color: #243b53; font-size: 14px; margin-top: 14px; }
+    p, li { font-size: 12.5px; }
+    .meta { color: #52606d; margin-bottom: 20px; }
+    .box { background: #f5f7fa; border-left: 4px solid #0f4c81; padding: 10px 14px; margin: 12px 0; }
+    .time { color: #7b341e; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Guion Max - Video de 3 minutos y medio</h1>
+  <p class="meta">Tema: perfil de usuario, favoritos, reservas y viajeros. Duracion objetivo: 3:10 - 3:30.</p>
+
+  <h2>Orden recomendado de pantalla</h2>
+  <ol>
+    <li><strong>frontend/pages/perfil.html</strong>: estructura del perfil.</li>
+    <li><strong>frontend/js/usuario/perfil.js</strong>: logica principal del area de usuario.</li>
+    <li><strong>frontend/css/usuario/perfil.css</strong>: estilos del perfil y estados.</li>
+    <li><strong>api/perfil/get.php</strong> y <strong>api/perfil/update.php</strong>: leer y editar datos personales.</li>
+    <li><strong>api/perfil/favoritos.php</strong> y <strong>api/favoritos/agregar.php</strong>: favoritos.</li>
+    <li><strong>api/perfil/reservas.php</strong> y <strong>api/perfil/viajeros-guardar.php</strong>: reservas y viajeros.</li>
+  </ol>
+
+  <h2>Guion hablado con tiempos</h2>
+
+  <h3><span class="time">0:00 - 0:25</span> Presentacion</h3>
+  <div class="box">
+    <p>
+      "En mi parte voy a explicar el perfil de usuario. Es la zona privada donde el cliente puede gestionar
+      sus datos, favoritos, reservas y viajeros."
+    </p>
+  </div>
+
+  <h3><span class="time">0:25 - 1:10</span> Estructura del perfil</h3>
+  <p>
+    "El archivo principal de la vista es <strong>perfil.html</strong>. Aqui esta organizada la estructura del perfil:
+    informacion personal, favoritos, reservas y datos relacionados con el usuario."
+  </p>
+  <p>
+    "El estilo esta en <strong>perfil.css</strong>, donde se trabajan las tarjetas, botones, estados de reserva y la
+    adaptacion responsive para que el perfil sea usable en movil y escritorio."
+  </p>
+
+  <h3><span class="time">1:10 - 2:05</span> Logica del usuario</h3>
+  <p>
+    "La logica principal esta en <strong>perfil.js</strong>. Este archivo se encarga de cargar los datos del usuario,
+    pintar la informacion en pantalla y gestionar acciones como editar perfil, consultar favoritos o mostrar reservas."
+  </p>
+  <p>
+    "En backend, <strong>api/perfil/get.php</strong> obtiene los datos personales y <strong>api/perfil/update.php</strong>
+    permite actualizarlos. Esto hace que el usuario pueda modificar su informacion sin depender del administrador."
+  </p>
+
+  <h3><span class="time">2:05 - 3:05</span> Favoritos, reservas y viajeros</h3>
+  <p>
+    "La parte de favoritos se apoya en <strong>api/perfil/favoritos.php</strong> y <strong>api/favoritos/agregar.php</strong>.
+    Gracias a esto el usuario puede guardar paquetes que le interesan y volver a ellos mas tarde."
+  </p>
+  <p>
+    "Para reservas, el archivo clave es <strong>api/perfil/reservas.php</strong>. Devuelve los viajes reservados,
+    su estado y la informacion necesaria para mostrarlos en el perfil."
+  </p>
+  <p>
+    "Tambien esta <strong>viajeros-guardar.php</strong>, que permite guardar los datos de las personas que viajan.
+    Esto es importante porque una reserva puede incluir mas de un viajero."
+  </p>
+
+  <h3><span class="time">3:05 - 3:25</span> Cierre</h3>
+  <div class="box">
+    <p>
+      "En resumen, mi parte hace que Turistea sea una aplicacion personalizada: el usuario puede gestionar
+      su informacion, sus viajes y sus favoritos desde un unico panel."
+    </p>
+  </div>
+
+  <h2>Consejo para grabar</h2>
+  <ul>
+    <li>Empieza mostrando el perfil funcionando y luego explica los archivos.</li>
+    <li>Dedica mas tiempo a <strong>perfil.js</strong>, porque conecta casi toda la parte.</li>
+    <li>Si falta tiempo, menciona favoritos y viajeros juntos en el bloque final.</li>
+  </ul>
+</body>
+</html>

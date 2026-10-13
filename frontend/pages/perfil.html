@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Perfil · Turistea</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5 local -->
+  <link rel="stylesheet" href="../css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../css/bootstrap-icons.css" />
+  <link rel="stylesheet" href="../css/bootstrap-grid.min.css" />
+
+  <!-- CSS del proyecto -->
+  <link rel="stylesheet" href="../css/header.css" />
+  <link rel="stylesheet" href="../css/footer.css" />
+  <link rel="stylesheet" href="../css/usuario/perfil.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-0">
+    <div class="container">
+      <button
+        class="btn btn-hamburger d-lg-none me-2"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#menuPrincipal"
+        aria-controls="menuPrincipal"
+        aria-label="Abrir menú">
+        <i class="bi bi-list"></i>
+      </button>
+      <a class="navbar-brand" href="../../index.html">
+        <img src="../assets/img/Turistea_Logo/logo_turistea.png" width="90" alt="Turistea" />
+      </a>
+      <ul class="navbar-nav d-none d-lg-flex flex-row gap-3 ms-4 me-auto">
+        <li class="nav-item"><a class="nav-link" href="../../index.html">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="experiencias.html">Experiencias</a></li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#modalContacto">Contacto</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item" id="nav-usuario"></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="offcanvas offcanvas-start menu-offcanvas" tabindex="-1" id="menuPrincipal">
+    <div class="offcanvas-header border-bottom">
+      <a class="navbar-brand m-0" href="../../index.html">
+        <img src="../assets/img/Turistea_Logo/logo_turistea.png" width="80" alt="Turistea" />
+      </a>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+    </div>
+    <div class="offcanvas-body p-0">
+      <ul class="list-unstyled menu-offcanvas-list mb-0">
+        <li><a href="../../index.html"><i class="bi bi-house-door me-2"></i>Inicio</a></li>
+        <li><a href="experiencias.html"><i class="bi bi-camera me-2"></i>Experiencias</a></li>
+        <li>
+          <a href="#" data-bs-dismiss="offcanvas" data-bs-toggle="modal" data-bs-target="#modalContacto">
+            <i class="bi bi-envelope me-2"></i>Contacto
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+  <!-- ===== HERO ===== -->
+  <div class="perfil-hero">
+    <div class="container perfil-hero-inner">
+      <div class="perfil-hero-info">
+        <h2 id="hero-saludo">¡Hola! 👋</h2>
+        <span id="hero-meta"><i class="bi bi-envelope me-1"></i><span id="hero-email">—</span></span>
+      </div>
+      <!-- Avatar: sin botón de cámara, generado dinámicamente por JS -->
+      <div class="perfil-avatar-wrap">
+        <img id="perfil-avatar" src="" alt="Avatar" class="perfil-avatar" />
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CONTENIDO PRINCIPAL ===== -->
+  <main class="perfil-main">
+    <div class="container">
+      <div class="row g-4">
+
+        <!-- ====== SIDEBAR ====== -->
+        <div class="col-md-4">
+          <div class="sidebar-card">
+
+            <div id="sidebar-nombre" class="user-name">—</div>
+            <div id="sidebar-email" class="user-email">—</div>
+
+            <!-- Stats -->
+            <div class="row g-2 mb-3">
+              <div class="col-6">
+                <div class="stat-box">
+                  <div class="stat-num" id="stat-reservas">—</div>
+                  <div class="stat-label">Reservas</div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="stat-box">
+                  <div class="stat-num" id="stat-favoritos">—</div>
+                  <div class="stat-label">Favoritos</div>
+                </div>
+              </div>
+            </div>
+
+            <hr class="sidebar-divider" />
+
+            <!-- Datos del usuario -->
+            <div class="sidebar-info-item" id="info-telefono-wrap">
+              <i class="bi bi-telephone-fill"></i>
+              <span id="info-telefono">—</span>
+            </div>
+            <div class="sidebar-info-item">
+              <i class="bi bi-calendar3"></i>
+              <span id="info-miembro">—</span>
+            </div>
+
+            <hr class="sidebar-divider" />
+
+            <!-- Tarjeta guardada -->
+            <div id="tarjeta-wrap" style="display:none;">
+              <div class="tarjeta-visual mb-3">
+                <div class="tarjeta-chip"><i class="bi bi-credit-card-2-front-fill"></i></div>
+                <div class="tarjeta-numero" id="tarjeta-numero">**** **** **** ----</div>
+                <div class="d-flex justify-content-between mt-2">
+                  <div>
+                    <div style="font-size:.6rem;opacity:.7;">TITULAR</div>
+                    <div class="tarjeta-titular" id="tarjeta-titular">—</div>
+                  </div>
+                  <div>
+                    <div style="font-size:.6rem;opacity:.7;">VENCE</div>
+                    <div class="tarjeta-vence" id="tarjeta-vence">--/--</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="sin-tarjeta-wrap" style="display:none;">
+              <p class="text-muted text-center" style="font-size:.8rem;">
+                <i class="bi bi-credit-card me-1"></i>Sin tarjeta guardada
+              </p>
+            </div>
+
+            <hr class="sidebar-divider" />
+
+            <!-- Botón editar perfil → abre modal -->
+            <button
+              class="btn btn-editar"
+              data-bs-toggle="modal"
+              data-bs-target="#modalEditarPerfil"
+            >
+              <i class="bi bi-pencil-fill"></i> Editar perfil
+            </button>
+
+            <a
+              href="#"
+              id="sidebar-logout"
+              class="d-flex align-items-center justify-content-center mt-3 text-danger text-decoration-none"
+              style="font-size:.85rem; font-weight:700;"
+            >
+              <i class="bi bi-box-arrow-right me-2"></i> Cerrar sesión
+            </a>
+
+          </div>
+        </div>
+
+        <!-- ====== PANEL DERECHO ====== -->
+        <div class="col-md-8">
+          <div class="panel-card">
+
+            <!-- Tabs: Reservas, Confirmados y Favoritos -->
+            <ul class="nav panel-tabs" id="perfilTabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link active"
+                  data-bs-toggle="tab"
+                  data-bs-target="#tab-reservas"
+                  type="button" role="tab"
+                >
+                  <i class="bi bi-ticket-detailed me-1"></i>Mis Reservas
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link"
+                  data-bs-toggle="tab"
+                  data-bs-target="#tab-confirmados"
+                  type="button" role="tab"
+                >
+                  <i class="bi bi-check-circle me-1"></i>Confirmados
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link"
+                  data-bs-toggle="tab"
+                  data-bs-target="#tab-favoritos"
+                  type="button" role="tab"
+                >
+                  <i class="bi bi-heart me-1"></i>Favoritos
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link"
+                  data-bs-toggle="tab"
+                  data-bs-target="#tab-resenas"
+                  type="button" role="tab"
+                >
+                  <i class="bi bi-pencil-square me-1"></i>Añadir reseña
+                </button>
+              </li>
+            </ul>
+
+            <div class="tab-content panel-body" id="perfilTabsContent">
+
+              <!-- TAB: Reservas -->
+              <div class="tab-pane fade show active" id="tab-reservas" role="tabpanel">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <h6 class="fw-bold mb-0" style="color:#1a2d45;">Próximas y recientes</h6>
+                  <select id="filtro-reservas" class="form-select form-select-sm" style="width:auto; border-radius:20px; font-size:.8rem;">
+                    <option value="">Todas</option>
+                    <option value="CONFIRMADA">Confirmadas</option>
+                    <option value="PENDIENTE">Pendientes</option>
+                    <option value="CANCELADA">Canceladas</option>
+                  </select>
+                </div>
+                <!-- Las tarjetas se insertan dinámicamente por JS -->
+                <div id="contenedor-reservas">
+                  <p class="text-muted text-center py-4">Cargando reservas…</p>
+                </div>
+              </div>
+
+              <!-- TAB: Confirmados -->
+              <div class="tab-pane fade" id="tab-confirmados" role="tabpanel">
+                <h6 class="fw-bold mb-3" style="color:#1a2d45;">Paquetes confirmados</h6>
+                <div id="contenedor-confirmados">
+                  <p class="text-muted text-center py-4">Cargando confirmados…</p>
+                </div>
+              </div>
+
+              <!-- TAB: Favoritos -->
+              <div class="tab-pane fade" id="tab-favoritos" role="tabpanel">
+                <h6 class="fw-bold mb-3" style="color:#1a2d45;">Destinos guardados</h6>
+                <!-- Las tarjetas se insertan dinámicamente por JS -->
+                <div class="row g-3" id="contenedor-favoritos">
+                  <p class="text-muted text-center py-4">Cargando favoritos…</p>
+                </div>
+              </div>
+
+              <!-- TAB: Añadir reseña -->
+              <div class="tab-pane fade" id="tab-resenas" role="tabpanel">
+                <h6 class="fw-bold mb-3" style="color:#1a2d45;">Viajes disponibles para reseñar</h6>
+                <div id="resena-feedback" class="d-none mb-3"></div>
+                <div id="contenedor-resenas">
+                  <p class="text-muted text-center py-4">Cargando viajes completados…</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+
+  <!-- ===== MODAL EDITAR PERFIL ===== -->
+  <div class="modal fade" id="modalEditarPerfil" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow">
+
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title"><i class="bi bi-pencil-fill me-2"></i>Editar perfil</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body p-4">
+          <div id="editar-feedback" class="mb-3 d-none"></div>
+
+          <div class="row g-3">
+            <div class="col-6">
+              <label class="form-label fw-bold">Nombre</label>
+              <input type="text" id="edit-nombre" class="form-control" placeholder="Tu nombre" />
+            </div>
+            <div class="col-6">
+              <label class="form-label fw-bold">Apellidos</label>
+              <input type="text" id="edit-apellidos" class="form-control" placeholder="Tus apellidos" />
+            </div>
+            <div class="col-12">
+              <label class="form-label fw-bold">Teléfono</label>
+              <input type="tel" id="edit-telefono" class="form-control" placeholder="+34 600 000 000" />
+            </div>
+          </div>
+
+          <!-- Sección tarjeta -->
+          <hr class="my-3" />
+          <p class="fw-bold mb-2" style="font-size:.9rem;">
+            <i class="bi bi-credit-card me-1 text-primary"></i>Tarjeta de crédito
+          </p>
+          <div id="tarjeta-modal-info" class="d-none mb-2">
+            <div class="alert alert-info py-2 px-3 mb-2" style="font-size:.82rem;">
+              <i class="bi bi-check-circle-fill me-1"></i>
+              Tarjeta guardada: <strong id="tarjeta-modal-resumen">**** ----</strong>
+            </div>
+          </div>
+          <div class="row g-2">
+            <div class="col-12">
+              <input type="text" id="card-titular" class="form-control form-control-sm" placeholder="Titular de la tarjeta" />
+            </div>
+            <div class="col-12">
+              <input type="text" id="card-numero" class="form-control form-control-sm" placeholder="Número de tarjeta (16 dígitos)" maxlength="19" />
+            </div>
+            <div class="col-6">
+              <input type="text" id="card-vencimiento" class="form-control form-control-sm" placeholder="MM/AA" maxlength="5" />
+            </div>
+            <div class="col-6">
+              <input type="text" id="card-cvv" class="form-control form-control-sm" placeholder="CVV" maxlength="4" />
+            </div>
+          </div>
+
+        </div>
+
+        <div class="modal-footer border-0">
+          <button type="button" class="btn btn-outline-secondary rounded-pill px-4" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary rounded-pill px-4" id="btn-guardar-perfil">
+            <i class="bi bi-check-lg me-1"></i>Guardar cambios
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalContacto" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0 shadow">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">Contacto Turistea</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body p-4">
+        <form>
+          <input type="text"  class="form-control mb-3" placeholder="Nombre completo" />
+          <input type="email" class="form-control mb-3" placeholder="Correo electrónico" />
+          <input type="text"  class="form-control mb-3" placeholder="Asunto" />
+          <textarea class="form-control mb-3" rows="5" placeholder="Mensaje"></textarea>
+          <button class="btn btn-primary w-100 rounded-pill">Enviar mensaje</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="mt-5">
+    <div class="footer-body">
+      <div class="container py-5">
+        <div class="row">
+          <div class="col-12 col-md-10 offset-md-1">
+            <div class="row g-4 mb-5">
+
+              <div class="col-12 col-md-4 text-center text-md-start">
+                <img src="../assets/img/Turistea_Logo/logo_sinfondo.png" alt="Turistea"
+                  class="footer-logo d-block mx-auto mx-md-0 mb-2" />
+                <p class="footer-desc mb-0">
+                  Elige destino y disfruta.<br>Nosotros nos encargamos del resto.
+                </p>
+              </div>
+
+              <div class="col-12 col-md-4 text-center text-md-start">
+                <p class="footer-heading">Datos de Contacto</p>
+                <ul class="footer-list">
+                  <li><i class="bi bi-geo-alt-fill footer-icon"></i> Calle Viajeros s/n, 28001 Madrid</li>
+                  <li><i class="bi bi-telephone-fill footer-icon"></i><a href="tel:+34900000000">+34 900 000 000</a></li>
+                  <li><i class="bi bi-envelope-fill footer-icon"></i><a href="mailto:turistea@test.com">turistea@test.com</a></li>
+                  <li><i class="bi bi-clock-fill footer-icon"></i> Lun – Vie: 09:00 – 20:00</li>
+                </ul>
+              </div>
+
+              <div class="col-12 col-md-4 text-center text-md-start">
+                <p class="footer-heading">Información Legal</p>
+                <ul class="footer-list">
+                  <li><a href="aviso-legal.html">Aviso legal</a></li>
+                  <li><a href="politica.html">Política de privacidad</a></li>
+                  <li><a href="condiciones.html">Términos y condiciones</a></li>
+                </ul>
+              </div>
+
+            </div>
+
+            <hr class="footer-hr mb-4" />
+
+            <div class="d-flex justify-content-center gap-3 mb-4">
+              <a href="https://www.instagram.com/_turistea_/" class="social-icon" aria-label="Instagram">
+                <i class="bi bi-instagram"></i>
+              </a>
+              <a href="https://x.com/turistea_" class="social-icon" aria-label="X">
+                <i class="bi bi-twitter-x"></i>
+              </a>
+            </div>
+
+            <p class="footer-copy mb-0">
+              &copy; <span id="footer-year"></span> Turistea · Todos los derechos reservados
+              &nbsp;·&nbsp;
+              Hecho con <i class="bi bi-heart-fill" style="color:#FF6B6B"></i> para viajeros
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== MODAL VIAJEROS (confirmar reserva) ===== -->
+  <div class="modal fade" id="modalViajeros" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content border-0 shadow">
+
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title">
+            <i class="bi bi-people-fill me-2"></i>Datos de los viajeros
+          </h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body p-4">
+          <p class="text-muted mb-3" style="font-size:.88rem;">
+            Introduce los datos de cada viajero para confirmar la reserva
+            y generar la factura.
+          </p>
+          <div id="viajeros-feedback" class="d-none mb-3"></div>
+          <!-- Los campos se generan dinámicamente por JS según num_viajeros -->
+          <div id="viajeros-campos"></div>
+        </div>
+
+        <div class="modal-footer border-0">
+          <button type="button" class="btn btn-outline-secondary rounded-pill px-4"
+            data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary rounded-pill px-4"
+            id="btn-confirmar-viajeros">
+            <i class="bi bi-check-lg me-1"></i>Confirmar reserva
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS local -->
+  <script src="../js/bootstrap.bundle.min.js"></script>
+  <!-- Lógica del perfil -->
+  <script type="module" src="../js/usuario/perfil.js"></script>
+
+  <script>
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+  </script>
+  <script>window.BASE_PATH = '../../';</script>
+<script src="../js/auth/navbarUsuario.js"></script>
+    <script type="module" src="../js/auth/keyboardShortcuts.js"></script>
+
+</body>
+</html>
